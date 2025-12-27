@@ -292,10 +292,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         shared_keys: Arc::new(Mutex::new(HashMap::new())),
     };
 
-    let addr: SocketAddr = ([127, 0, 0, 1], 3000).into();
+    let addr: SocketAddr = ([0, 0, 0, 0], 3000).into();
     let listener = TcpListener::bind(addr).await?;
     println!("服务器启动于 http://{}", addr);
-    println!("打开浏览器访问: http://127.0.0.1:3000");
+    println!("本地浏览器访问: http://127.0.0.1:3000");
+    println!("局域网访问: http://<本机IP>:3000");
     println!();
 
     loop {
